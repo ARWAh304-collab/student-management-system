@@ -139,6 +139,7 @@
             btnTeachers.Text = "Teachers";
             btnTeachers.TextAlign = ContentAlignment.MiddleLeft;
             btnTeachers.UseVisualStyleBackColor = true;
+            btnTeachers.Click += btnTeachers_Click;
             // 
             // btnStudents
             // 

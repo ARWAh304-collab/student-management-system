@@ -47,5 +47,11 @@ namespace SchoolManagementSystem
                 this.Close();
             }
         }
+
+        private void btnTeachers_Click(object sender, EventArgs e)
+        {
+            var teachers = new TeacherManage();
+            teachers.ShowDialog();
+        }
     }
 }
