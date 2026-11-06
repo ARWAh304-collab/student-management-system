@@ -155,6 +155,7 @@
             btnStudents.Text = "Students";
             btnStudents.TextAlign = ContentAlignment.MiddleLeft;
             btnStudents.UseVisualStyleBackColor = true;
+            btnStudents.Click += btnStudents_Click;
             // 
             // lblSidebarTitle
             // 

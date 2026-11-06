@@ -53,5 +53,11 @@ namespace SchoolManagementSystem
             var teachers = new TeacherManage();
             teachers.ShowDialog();
         }
+
+        private void btnStudents_Click(object sender, EventArgs e)
+        {
+            var students = new frmStudent();
+            students.ShowDialog();
+        }
     }
 }
