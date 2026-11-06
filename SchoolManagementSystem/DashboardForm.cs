@@ -58,6 +58,7 @@ namespace SchoolManagementSystem
         {
             var students = new frmStudent();
             students.ShowDialog();
+        }
         private void btnClasses_Click(object sender, EventArgs e)
         {
             var classes = new Classesform();
