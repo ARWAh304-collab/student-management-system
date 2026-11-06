@@ -124,6 +124,7 @@
             btnClasses.Text = "Classes";
             btnClasses.TextAlign = ContentAlignment.MiddleLeft;
             btnClasses.UseVisualStyleBackColor = true;
+            btnClasses.Click += btnClasses_Click;
             // 
             // btnTeachers
             // 
