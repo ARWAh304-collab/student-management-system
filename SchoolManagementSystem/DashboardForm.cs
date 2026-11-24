@@ -24,7 +24,7 @@ namespace SchoolManagementSystem
 
         private void StyleSidebarButtons()
         {
-            var buttons = new[] { btnStudents, btnTeachers, btnClasses, btnAttendance, btnLogout };
+            var buttons = new[] { btnStudents, btnTeachers, btnClasses, btnLogout };
 
             foreach (var btn in buttons)
             {
@@ -63,6 +63,11 @@ namespace SchoolManagementSystem
         {
             var classes = new Classesform();
             classes.ShowDialog();
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

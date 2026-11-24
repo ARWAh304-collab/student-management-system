@@ -22,5 +22,10 @@ namespace SchoolManagementSystem
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

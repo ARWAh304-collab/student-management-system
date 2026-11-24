@@ -56,7 +56,7 @@
             pnlLeft.Dock = DockStyle.Left;
             pnlLeft.Location = new Point(0, 0);
             pnlLeft.Name = "pnlLeft";
-            pnlLeft.Size = new Size(420, 503);
+            pnlLeft.Size = new Size(420, 573);
             pnlLeft.TabIndex = 0;
             pnlLeft.Paint += panel1_Paint;
             // 
@@ -72,7 +72,7 @@
             // 
             lblTagline.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTagline.ForeColor = Color.White;
-            lblTagline.Location = new Point(35, 217);
+            lblTagline.Location = new Point(43, 421);
             lblTagline.Name = "lblTagline";
             lblTagline.Size = new Size(340, 30);
             lblTagline.TabIndex = 2;
@@ -83,7 +83,7 @@
             // 
             lblSchool.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSchool.ForeColor = Color.White;
-            lblSchool.Location = new Point(-10, 147);
+            lblSchool.Location = new Point(0, 274);
             lblSchool.Name = "lblSchool";
             lblSchool.Size = new Size(434, 70);
             lblSchool.TabIndex = 1;
@@ -94,7 +94,7 @@
             // picLogo
             // 
             picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(125, 0);
+            picLogo.Location = new Point(149, 114);
             picLogo.Name = "picLogo";
             picLogo.Size = new Size(130, 131);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
@@ -194,8 +194,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(882, 503);
+            BackColor = Color.FromArgb(244, 247, 251);
+            ClientSize = new Size(882, 573);
             Controls.Add(btnLogin);
             Controls.Add(chkShowPassword);
             Controls.Add(txtPassword);

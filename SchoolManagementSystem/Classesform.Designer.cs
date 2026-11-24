@@ -28,289 +28,290 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Classesform));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.lblClassName = new System.Windows.Forms.Label();
-            this.txtClassName = new System.Windows.Forms.TextBox();
-            this.txtGrade = new System.Windows.Forms.TextBox();
-            this.lblGrade = new System.Windows.Forms.Label();
-            this.lblTeacher = new System.Windows.Forms.Label();
-            this.cmbTeachers = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.dgvClasses = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            lblClassName = new Label();
+            txtClassName = new TextBox();
+            txtGrade = new TextBox();
+            lblGrade = new Label();
+            lblTeacher = new Label();
+            cmbTeachers = new ComboBox();
+            btnAdd = new Button();
+            imageList1 = new ImageList(components);
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnClear = new Button();
+            dgvClasses = new DataGridView();
+            panel1 = new Panel();
+            label1 = new Label();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            txtSearch = new TextBox();
+            lblSearch = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvClasses).BeginInit();
+            panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
             // 
             // lblClassName
             // 
-            this.lblClassName.AutoSize = true;
-            this.lblClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClassName.Location = new System.Drawing.Point(11, 31);
-            this.lblClassName.Name = "lblClassName";
-            this.lblClassName.Size = new System.Drawing.Size(101, 20);
-            this.lblClassName.TabIndex = 0;
-            this.lblClassName.Text = "Class Name";
+            lblClassName.AutoSize = true;
+            lblClassName.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblClassName.Location = new Point(11, 39);
+            lblClassName.Name = "lblClassName";
+            lblClassName.Size = new Size(101, 20);
+            lblClassName.TabIndex = 0;
+            lblClassName.Text = "Class Name";
             // 
             // txtClassName
             // 
-            this.txtClassName.Location = new System.Drawing.Point(12, 54);
-            this.txtClassName.Name = "txtClassName";
-            this.txtClassName.Size = new System.Drawing.Size(153, 26);
-            this.txtClassName.TabIndex = 1;
-            this.txtClassName.TextChanged += new System.EventHandler(this.txtClassName_TextChanged);
+            txtClassName.Location = new Point(12, 68);
+            txtClassName.Margin = new Padding(3, 4, 3, 4);
+            txtClassName.Name = "txtClassName";
+            txtClassName.Size = new Size(153, 26);
+            txtClassName.TabIndex = 1;
+            txtClassName.TextChanged += txtClassName_TextChanged;
             // 
             // txtGrade
             // 
-            this.txtGrade.Location = new System.Drawing.Point(214, 58);
-            this.txtGrade.Name = "txtGrade";
-            this.txtGrade.Size = new System.Drawing.Size(141, 26);
-            this.txtGrade.TabIndex = 2;
-            this.txtGrade.TextChanged += new System.EventHandler(this.txtGrade_TextChanged);
+            txtGrade.Location = new Point(214, 72);
+            txtGrade.Margin = new Padding(3, 4, 3, 4);
+            txtGrade.Name = "txtGrade";
+            txtGrade.Size = new Size(141, 26);
+            txtGrade.TabIndex = 2;
+            txtGrade.TextChanged += txtGrade_TextChanged;
             // 
             // lblGrade
             // 
-            this.lblGrade.AutoSize = true;
-            this.lblGrade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGrade.Location = new System.Drawing.Point(210, 31);
-            this.lblGrade.Name = "lblGrade";
-            this.lblGrade.Size = new System.Drawing.Size(100, 20);
-            this.lblGrade.TabIndex = 4;
-            this.lblGrade.Text = "Grade Level";
+            lblGrade.AutoSize = true;
+            lblGrade.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGrade.Location = new Point(210, 39);
+            lblGrade.Name = "lblGrade";
+            lblGrade.Size = new Size(100, 20);
+            lblGrade.TabIndex = 4;
+            lblGrade.Text = "Grade Level";
             // 
             // lblTeacher
             // 
-            this.lblTeacher.AutoSize = true;
-            this.lblTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeacher.Location = new System.Drawing.Point(404, 31);
-            this.lblTeacher.Name = "lblTeacher";
-            this.lblTeacher.Size = new System.Drawing.Size(163, 20);
-            this.lblTeacher.TabIndex = 5;
-            this.lblTeacher.Text = "Teacher Assignment";
+            lblTeacher.AutoSize = true;
+            lblTeacher.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTeacher.Location = new Point(404, 39);
+            lblTeacher.Name = "lblTeacher";
+            lblTeacher.Size = new Size(163, 20);
+            lblTeacher.TabIndex = 5;
+            lblTeacher.Text = "Teacher Assignment";
             // 
             // cmbTeachers
             // 
-            this.cmbTeachers.FormattingEnabled = true;
-            this.cmbTeachers.Location = new System.Drawing.Point(408, 58);
-            this.cmbTeachers.Name = "cmbTeachers";
-            this.cmbTeachers.Size = new System.Drawing.Size(188, 28);
-            this.cmbTeachers.TabIndex = 6;
+            cmbTeachers.FormattingEnabled = true;
+            cmbTeachers.Location = new Point(408, 72);
+            cmbTeachers.Margin = new Padding(3, 4, 3, 4);
+            cmbTeachers.Name = "cmbTeachers";
+            cmbTeachers.Size = new Size(188, 28);
+            cmbTeachers.TabIndex = 6;
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnAdd.ImageIndex = 1;
-            this.btnAdd.ImageList = this.imageList1;
-            this.btnAdd.Location = new System.Drawing.Point(176, 179);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 37);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.BackColor = Color.FromArgb(31, 58, 147);
+            btnAdd.ImageIndex = 1;
+            btnAdd.ImageList = imageList1;
+            btnAdd.Location = new Point(183, 240);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 46);
+            btnAdd.TabIndex = 7;
+            btnAdd.Text = "Add";
+            btnAdd.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // imageList1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "bin.png");
-            this.imageList1.Images.SetKeyName(1, "add.png");
-            this.imageList1.Images.SetKeyName(2, "clean.png");
-            this.imageList1.Images.SetKeyName(3, "delete.png");
-            this.imageList1.Images.SetKeyName(4, "update.png");
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "bin.png");
+            imageList1.Images.SetKeyName(1, "add.png");
+            imageList1.Images.SetKeyName(2, "clean.png");
+            imageList1.Images.SetKeyName(3, "delete.png");
+            imageList1.Images.SetKeyName(4, "update.png");
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.ImageIndex = 4;
-            this.btnUpdate.ImageList = this.imageList1;
-            this.btnUpdate.Location = new System.Drawing.Point(275, 179);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 37);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            btnUpdate.BackColor = Color.FromArgb(31, 58, 147);
+            btnUpdate.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUpdate.ImageIndex = 4;
+            btnUpdate.ImageList = imageList1;
+            btnUpdate.Location = new Point(340, 240);
+            btnUpdate.Margin = new Padding(3, 4, 3, 4);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 46);
+            btnUpdate.TabIndex = 8;
+            btnUpdate.Text = "Update";
+            btnUpdate.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnDelete.ImageIndex = 0;
-            this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(400, 183);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 33);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.BackColor = Color.FromArgb(30, 155, 60);
+            btnDelete.ImageIndex = 0;
+            btnDelete.ImageList = imageList1;
+            btnDelete.Location = new Point(529, 240);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(92, 41);
+            btnDelete.TabIndex = 9;
+            btnDelete.Text = "Delete";
+            btnDelete.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnClear.ImageIndex = 2;
-            this.btnClear.ImageList = this.imageList1;
-            this.btnClear.Location = new System.Drawing.Point(513, 183);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 33);
-            this.btnClear.TabIndex = 10;
-            this.btnClear.Text = "Clear";
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.button4_Click);
+            btnClear.BackColor = Color.FromArgb(30, 155, 60);
+            btnClear.ImageIndex = 2;
+            btnClear.ImageList = imageList1;
+            btnClear.Location = new Point(707, 240);
+            btnClear.Margin = new Padding(3, 4, 3, 4);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(75, 41);
+            btnClear.TabIndex = 10;
+            btnClear.Text = "Clear";
+            btnClear.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += button4_Click;
             // 
             // dgvClasses
             // 
-            this.dgvClasses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvClasses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvClasses.BackgroundColor = System.Drawing.Color.White;
-            this.dgvClasses.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClasses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClasses.EnableHeadersVisualStyles = false;
-            this.dgvClasses.Location = new System.Drawing.Point(9, 35);
-            this.dgvClasses.MultiSelect = false;
-            this.dgvClasses.Name = "dgvClasses";
-            this.dgvClasses.ReadOnly = true;
-            this.dgvClasses.RowHeadersWidth = 51;
-            this.dgvClasses.RowTemplate.Height = 25;
-            this.dgvClasses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClasses.Size = new System.Drawing.Size(683, 195);
-            this.dgvClasses.TabIndex = 11;
-            this.dgvClasses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClasses_CellClick);
+            dgvClasses.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvClasses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClasses.BackgroundColor = Color.White;
+            dgvClasses.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvClasses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvClasses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClasses.EnableHeadersVisualStyles = false;
+            dgvClasses.Location = new Point(9, 44);
+            dgvClasses.Margin = new Padding(3, 4, 3, 4);
+            dgvClasses.MultiSelect = false;
+            dgvClasses.Name = "dgvClasses";
+            dgvClasses.ReadOnly = true;
+            dgvClasses.RowHeadersWidth = 51;
+            dgvClasses.RowTemplate.Height = 25;
+            dgvClasses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClasses.Size = new Size(683, 244);
+            dgvClasses.TabIndex = 11;
+            dgvClasses.CellClick += dgvClasses_CellClick;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(972, 65);
-            this.panel1.TabIndex = 13;
+            panel1.BackColor = Color.FromArgb(26, 60, 142);
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(972, 81);
+            panel1.TabIndex = 13;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(183, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(234, 65);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Class Management";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 65);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(160, 505);
-            this.panel2.TabIndex = 14;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(183, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(234, 81);
+            label1.TabIndex = 14;
+            label1.Text = "Class Management";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            label1.Click += label1_Click;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblClassName);
-            this.groupBox1.Controls.Add(this.txtClassName);
-            this.groupBox1.Controls.Add(this.txtGrade);
-            this.groupBox1.Controls.Add(this.lblGrade);
-            this.groupBox1.Controls.Add(this.cmbTeachers);
-            this.groupBox1.Controls.Add(this.lblTeacher);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(186, 71);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(602, 100);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Class Details";
+            groupBox1.Controls.Add(lblClassName);
+            groupBox1.Controls.Add(txtClassName);
+            groupBox1.Controls.Add(txtGrade);
+            groupBox1.Controls.Add(lblGrade);
+            groupBox1.Controls.Add(cmbTeachers);
+            groupBox1.Controls.Add(lblTeacher);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(186, 89);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(602, 125);
+            groupBox1.TabIndex = 15;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Class Details";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dgvClasses);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(179, 310);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(709, 248);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Class Records";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(dgvClasses);
+            groupBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox2.Location = new Point(179, 388);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(709, 310);
+            groupBox2.TabIndex = 16;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Class Records";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(441, 257);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(147, 25);
-            this.txtSearch.TabIndex = 17;
+            txtSearch.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(441, 321);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(147, 25);
+            txtSearch.TabIndex = 17;
             // 
             // lblSearch
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(241, 257);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(176, 20);
-            this.lblSearch.TabIndex = 18;
-            this.lblSearch.Text = "Search Class / Grade:";
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(241, 321);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(176, 20);
+            lblSearch.TabIndex = 18;
+            lblSearch.Text = "Search Class / Grade:";
             // 
             // Classesform
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(972, 570);
-            this.Controls.Add(this.lblSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnAdd);
-            this.Name = "Classesform";
-            this.Text = "School Management System - Class Management";
-            this.Load += new System.EventHandler(this.Classesform_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(244, 247, 251);
+            ClientSize = new Size(972, 712);
+            Controls.Add(lblSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Controls.Add(panel1);
+            Controls.Add(btnClear);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnAdd);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Classesform";
+            Text = "School Management System - Class Management";
+            Load += Classesform_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvClasses).EndInit();
+            panel1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -330,7 +331,6 @@
         private System.Windows.Forms.DataGridView dgvClasses;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtSearch;

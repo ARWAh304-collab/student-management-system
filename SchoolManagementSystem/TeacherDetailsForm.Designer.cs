@@ -45,15 +45,17 @@
             txtNewEmail = new TextBox();
             txtNewPhone = new TextBox();
             txtNewDepartment = new TextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)picTeacherPhoto).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblTeacherFormTitle
             // 
             lblTeacherFormTitle.AutoSize = true;
             lblTeacherFormTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTeacherFormTitle.ForeColor = Color.Navy;
-            lblTeacherFormTitle.Location = new Point(12, 38);
+            lblTeacherFormTitle.ForeColor = Color.White;
+            lblTeacherFormTitle.Location = new Point(226, 22);
             lblTeacherFormTitle.Name = "lblTeacherFormTitle";
             lblTeacherFormTitle.Size = new Size(178, 28);
             lblTeacherFormTitle.TabIndex = 0;
@@ -122,7 +124,7 @@
             // picTeacherPhoto
             // 
             picTeacherPhoto.BorderStyle = BorderStyle.FixedSingle;
-            picTeacherPhoto.Location = new Point(160, 117);
+            picTeacherPhoto.Location = new Point(126, 103);
             picTeacherPhoto.Name = "picTeacherPhoto";
             picTeacherPhoto.Size = new Size(125, 62);
             picTeacherPhoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -131,7 +133,7 @@
             // 
             // btnUploadPhoto
             // 
-            btnUploadPhoto.Location = new Point(361, 136);
+            btnUploadPhoto.Location = new Point(398, 119);
             btnUploadPhoto.Name = "btnUploadPhoto";
             btnUploadPhoto.Size = new Size(127, 29);
             btnUploadPhoto.TabIndex = 8;
@@ -140,21 +142,23 @@
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.FromArgb(26, 60, 142);
             btnSave.Location = new Point(283, 551);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 9;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
+            btnCancel.BackColor = Color.FromArgb(46, 158, 79);
             btnCancel.Location = new Point(502, 551);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(94, 29);
             btnCancel.TabIndex = 10;
             btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             // 
             // txtNewAddress
             // 
@@ -172,9 +176,9 @@
             // 
             // txtNewSubject
             // 
-            txtNewSubject.Location = new Point(416, 358);
+            txtNewSubject.Location = new Point(398, 358);
             txtNewSubject.Name = "txtNewSubject";
-            txtNewSubject.Size = new Size(180, 27);
+            txtNewSubject.Size = new Size(198, 27);
             txtNewSubject.TabIndex = 13;
             // 
             // txtNewEmail
@@ -186,24 +190,34 @@
             // 
             // txtNewPhone
             // 
-            txtNewPhone.Location = new Point(416, 241);
+            txtNewPhone.Location = new Point(398, 241);
             txtNewPhone.Name = "txtNewPhone";
-            txtNewPhone.Size = new Size(180, 27);
+            txtNewPhone.Size = new Size(198, 27);
             txtNewPhone.TabIndex = 15;
             // 
             // txtNewDepartment
             // 
-            txtNewDepartment.Location = new Point(416, 468);
+            txtNewDepartment.Location = new Point(398, 468);
             txtNewDepartment.Name = "txtNewDepartment";
-            txtNewDepartment.Size = new Size(180, 27);
+            txtNewDepartment.Size = new Size(198, 27);
             txtNewDepartment.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(26, 60, 142);
+            panel1.Controls.Add(lblTeacherFormTitle);
+            panel1.Location = new Point(1, -3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(627, 72);
+            panel1.TabIndex = 17;
             // 
             // AddTeacherForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonHighlight;
+            BackColor = Color.FromArgb(244, 247, 251);
             ClientSize = new Size(632, 603);
+            Controls.Add(panel1);
             Controls.Add(txtNewDepartment);
             Controls.Add(txtNewPhone);
             Controls.Add(txtNewEmail);
@@ -220,13 +234,14 @@
             Controls.Add(txtPhone);
             Controls.Add(txtEmail);
             Controls.Add(txtTeacherName);
-            Controls.Add(lblTeacherFormTitle);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "AddTeacherForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Add New Teacher";
-            Load += this.AddTeacherForm_Load_1;
+            Load += AddTeacherForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)picTeacherPhoto).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,5 +265,6 @@
         private TextBox txtNewEmail;
         private TextBox txtNewPhone;
         private TextBox txtNewDepartment;
+        private Panel panel1;
     }
 }

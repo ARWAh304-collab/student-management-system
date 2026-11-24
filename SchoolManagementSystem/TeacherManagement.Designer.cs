@@ -108,6 +108,7 @@
             // 
             // TopPanel
             // 
+            TopPanel.BackColor = Color.FromArgb(26, 60, 142);
             TopPanel.Controls.Add(lblPageTitle);
             TopPanel.Controls.Add(lblSystemName);
             TopPanel.Controls.Add(btnHome);
@@ -130,6 +131,7 @@
             // lblSystemName
             // 
             lblSystemName.AutoSize = true;
+            lblSystemName.ForeColor = SystemColors.ButtonHighlight;
             lblSystemName.Location = new Point(516, 18);
             lblSystemName.Name = "lblSystemName";
             lblSystemName.Size = new Size(197, 20);
@@ -138,15 +140,17 @@
             // 
             // btnHome
             // 
+            btnHome.BackColor = Color.Snow;
             btnHome.Location = new Point(48, 12);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(80, 32);
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
-            btnHome.UseVisualStyleBackColor = true;
+            btnHome.UseVisualStyleBackColor = false;
             // 
             // LeftPanel
             // 
+            LeftPanel.BackColor = Color.FromArgb(26, 60, 142);
             LeftPanel.Controls.Add(btnResetFilters);
             LeftPanel.Controls.Add(btnAddTeacher);
             LeftPanel.Controls.Add(clbTeacherNames);
@@ -164,7 +168,7 @@
             // btnResetFilters
             // 
             btnResetFilters.ForeColor = Color.ForestGreen;
-            btnResetFilters.Location = new Point(44, 365);
+            btnResetFilters.Location = new Point(66, 413);
             btnResetFilters.Name = "btnResetFilters";
             btnResetFilters.Size = new Size(170, 29);
             btnResetFilters.TabIndex = 7;
@@ -173,7 +177,7 @@
             // 
             // btnAddTeacher
             // 
-            btnAddTeacher.BackColor = Color.DarkGreen;
+            btnAddTeacher.BackColor = Color.FromArgb(30, 155, 60);
             btnAddTeacher.ForeColor = SystemColors.ButtonHighlight;
             btnAddTeacher.Location = new Point(27, 503);
             btnAddTeacher.Name = "btnAddTeacher";
@@ -185,12 +189,13 @@
             // 
             // clbTeacherNames
             // 
+            clbTeacherNames.BackColor = SystemColors.InactiveBorder;
             clbTeacherNames.BorderStyle = BorderStyle.None;
             clbTeacherNames.CheckOnClick = true;
             clbTeacherNames.ForeColor = Color.SeaGreen;
             clbTeacherNames.FormattingEnabled = true;
             clbTeacherNames.Items.AddRange(new object[] { "teacher1", "teacher2" });
-            clbTeacherNames.Location = new Point(8, 205);
+            clbTeacherNames.Location = new Point(12, 220);
             clbTeacherNames.Name = "clbTeacherNames";
             clbTeacherNames.Size = new Size(260, 154);
             clbTeacherNames.TabIndex = 5;
@@ -199,6 +204,7 @@
             // 
             lblFilter.AutoSize = true;
             lblFilter.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFilter.ForeColor = SystemColors.ButtonHighlight;
             lblFilter.Location = new Point(27, 182);
             lblFilter.Name = "lblFilter";
             lblFilter.Size = new Size(112, 20);
@@ -207,6 +213,7 @@
             // 
             // txtSearchTeacher
             // 
+            txtSearchTeacher.BackColor = SystemColors.InactiveBorder;
             txtSearchTeacher.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSearchTeacher.Location = new Point(8, 116);
             txtSearchTeacher.Multiline = true;
@@ -219,6 +226,7 @@
             // 
             lblSearch.AutoSize = true;
             lblSearch.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSearch.ForeColor = SystemColors.ButtonHighlight;
             lblSearch.Location = new Point(8, 84);
             lblSearch.Name = "lblSearch";
             lblSearch.Size = new Size(105, 17);
@@ -238,10 +246,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Cambria", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Cambria", 14F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(12, 12);
             label1.Name = "label1";
-            label1.Size = new Size(93, 23);
+            label1.Size = new Size(111, 28);
             label1.TabIndex = 0;
             label1.Text = "Teachers";
             // 
@@ -270,6 +279,7 @@
             // flpTeachers
             // 
             flpTeachers.AutoScroll = true;
+            flpTeachers.BackColor = Color.FromArgb(244, 247, 251);
             flpTeachers.Controls.Add(panel3);
             flpTeachers.Controls.Add(panel2);
             flpTeachers.Controls.Add(pnlTeacherCard);
@@ -301,7 +311,7 @@
             // 
             // button7
             // 
-            button7.BackColor = Color.DarkGreen;
+            button7.BackColor = Color.FromArgb(31, 58, 147);
             button7.ForeColor = SystemColors.ButtonHighlight;
             button7.Location = new Point(106, 317);
             button7.Name = "button7";
@@ -358,7 +368,7 @@
             // 
             // button8
             // 
-            button8.BackColor = Color.DarkGreen;
+            button8.BackColor = Color.FromArgb(31, 58, 147);
             button8.ForeColor = SystemColors.ButtonHighlight;
             button8.Location = new Point(12, 317);
             button8.Name = "button8";
@@ -369,7 +379,7 @@
             // 
             // button9
             // 
-            button9.BackColor = Color.Red;
+            button9.BackColor = Color.FromArgb(30, 155, 60);
             button9.Location = new Point(212, 317);
             button9.Name = "button9";
             button9.Size = new Size(86, 29);
@@ -430,10 +440,11 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(332, 364);
             panel2.TabIndex = 12;
+            panel2.Paint += panel2_Paint;
             // 
             // button4
             // 
-            button4.BackColor = Color.DarkGreen;
+            button4.BackColor = Color.FromArgb(31, 58, 147);
             button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Location = new Point(106, 317);
             button4.Name = "button4";
@@ -490,7 +501,7 @@
             // 
             // button5
             // 
-            button5.BackColor = Color.DarkGreen;
+            button5.BackColor = Color.FromArgb(31, 58, 147);
             button5.ForeColor = SystemColors.ButtonHighlight;
             button5.Location = new Point(12, 317);
             button5.Name = "button5";
@@ -501,7 +512,7 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.Red;
+            button6.BackColor = Color.FromArgb(30, 155, 60);
             button6.Location = new Point(212, 317);
             button6.Name = "button6";
             button6.Size = new Size(86, 29);
@@ -587,7 +598,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.DarkGreen;
+            button1.BackColor = Color.FromArgb(31, 58, 147);
             button1.ForeColor = SystemColors.ButtonHighlight;
             button1.Location = new Point(106, 317);
             button1.Name = "button1";
@@ -644,7 +655,7 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.DarkGreen;
+            button2.BackColor = Color.FromArgb(31, 58, 147);
             button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Location = new Point(12, 317);
             button2.Name = "button2";
@@ -655,7 +666,7 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Red;
+            button3.BackColor = Color.FromArgb(30, 155, 60);
             button3.Location = new Point(212, 317);
             button3.Name = "button3";
             button3.Size = new Size(86, 29);

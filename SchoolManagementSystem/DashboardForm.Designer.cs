@@ -30,7 +30,6 @@
         {
             pnlSidebar = new Panel();
             btnLogout = new Button();
-            btnAttendance = new Button();
             btnClasses = new Button();
             btnTeachers = new Button();
             btnStudents = new Button();
@@ -68,7 +67,6 @@
             // 
             pnlSidebar.BackColor = Color.FromArgb(26, 60, 142);
             pnlSidebar.Controls.Add(btnLogout);
-            pnlSidebar.Controls.Add(btnAttendance);
             pnlSidebar.Controls.Add(btnClasses);
             pnlSidebar.Controls.Add(btnTeachers);
             pnlSidebar.Controls.Add(btnStudents);
@@ -94,21 +92,6 @@
             btnLogout.TextAlign = ContentAlignment.MiddleLeft;
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
-            // 
-            // btnAttendance
-            // 
-            btnAttendance.Cursor = Cursors.Hand;
-            btnAttendance.FlatAppearance.BorderSize = 0;
-            btnAttendance.FlatStyle = FlatStyle.Flat;
-            btnAttendance.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAttendance.ForeColor = Color.White;
-            btnAttendance.Location = new Point(0, 270);
-            btnAttendance.Name = "btnAttendance";
-            btnAttendance.Size = new Size(230, 50);
-            btnAttendance.TabIndex = 5;
-            btnAttendance.Text = "Attendance";
-            btnAttendance.TextAlign = ContentAlignment.MiddleLeft;
-            btnAttendance.UseVisualStyleBackColor = true;
             // 
             // btnClasses
             // 
@@ -396,6 +379,7 @@
             Name = "DashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "School Management System - Dashboard";
+            Load += DashboardForm_Load;
             pnlSidebar.ResumeLayout(false);
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
@@ -419,7 +403,6 @@
         private Button btnClasses;
         private Button btnTeachers;
         private Button btnLogout;
-        private Button btnAttendance;
         private Panel pnlHeader;
         private Label lblWelcome;
         private Label lblPageTitle;
