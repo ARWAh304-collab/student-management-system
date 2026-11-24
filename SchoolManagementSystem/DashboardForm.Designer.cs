@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
+            btnUsers = new Button();
             btnLogout = new Button();
             btnClasses = new Button();
             btnTeachers = new Button();
@@ -42,6 +43,7 @@
             lblStudentsTitle = new Label();
             lblStudentsCount = new Label();
             pnlContent = new Panel();
+            pnlChart = new Panel();
             pnlCardAttendance = new Panel();
             panel4 = new Panel();
             lblAttendanceTitle = new Label();
@@ -54,7 +56,6 @@
             panel2 = new Panel();
             lblTeachersTitle = new Label();
             lblTeachersCount = new Label();
-            pnlChart = new Panel();
             pnlSidebar.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlCardStudents.SuspendLayout();
@@ -67,6 +68,7 @@
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(26, 60, 142);
+            pnlSidebar.Controls.Add(btnUsers);
             pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnClasses);
             pnlSidebar.Controls.Add(btnTeachers);
@@ -77,6 +79,22 @@
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(250, 603);
             pnlSidebar.TabIndex = 0;
+            // 
+            // btnUsers
+            // 
+            btnUsers.Cursor = Cursors.Hand;
+            btnUsers.FlatAppearance.BorderSize = 0;
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUsers.ForeColor = Color.White;
+            btnUsers.Location = new Point(0, 270);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(230, 50);
+            btnUsers.TabIndex = 7;
+            btnUsers.Text = "Users";
+            btnUsers.TextAlign = ContentAlignment.MiddleLeft;
+            btnUsers.UseVisualStyleBackColor = true;
+            btnUsers.Click += btnUsers_Click;
             // 
             // btnLogout
             // 
@@ -243,6 +261,14 @@
             pnlContent.Size = new Size(832, 533);
             pnlContent.TabIndex = 2;
             // 
+            // pnlChart
+            // 
+            pnlChart.BackColor = Color.White;
+            pnlChart.Location = new Point(20, 160);
+            pnlChart.Name = "pnlChart";
+            pnlChart.Size = new Size(500, 300);
+            pnlChart.TabIndex = 4;
+            // 
             // pnlCardAttendance
             // 
             pnlCardAttendance.BackColor = Color.White;
@@ -369,14 +395,6 @@
             lblTeachersCount.TabIndex = 0;
             lblTeachersCount.Text = "0";
             // 
-            // pnlChart
-            // 
-            pnlChart.BackColor = Color.White;
-            pnlChart.Location = new Point(20, 160);
-            pnlChart.Name = "pnlChart";
-            pnlChart.Size = new Size(500, 300);
-            pnlChart.TabIndex = 4;
-            // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -434,5 +452,6 @@
         private Label lblAttendanceTitle;
         private Label lblAttendanceCount;
         private Panel pnlChart;
+        private Button btnUsers;
     }
 }

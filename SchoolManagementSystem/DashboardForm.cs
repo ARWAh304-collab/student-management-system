@@ -13,6 +13,7 @@ namespace SchoolManagementSystem
     public partial class DashboardForm : Form
     {
         public bool LoggedOut { get; private set; }
+        private Panel pnlPie = null!;
 
         public DashboardForm(string username)
         {
@@ -21,13 +22,23 @@ namespace SchoolManagementSystem
             lblWelcome.Text = "Welcome, " + username;
             lblWelcome.Left = pnlHeader.Width - lblWelcome.Width - 20;
 
-            // GDI+ : ربط حدث الرسم
+            // GDI+ : bar chart paint event
             pnlChart.Paint += pnlChart_Paint;
+
+            // create the pie panel next to the bar chart
+            pnlPie = new Panel
+            {
+                BackColor = Color.White,
+                Size = new Size(260, 300),
+                Location = new Point(pnlChart.Right + 20, pnlChart.Top)
+            };
+            pnlChart.Parent!.Controls.Add(pnlPie);
+            pnlPie.Paint += pnlPie_Paint;
         }
 
         private void StyleSidebarButtons()
         {
-            var buttons = new[] { btnStudents, btnTeachers, btnClasses, btnLogout };
+            var buttons = new[] { btnStudents, btnTeachers, btnClasses, btnUsers, btnLogout };
 
             foreach (var btn in buttons)
             {
@@ -69,14 +80,20 @@ namespace SchoolManagementSystem
             classes.ShowDialog();
         }
 
+        private void btnUsers_Click(object? sender, EventArgs e)
+        {
+            var users = new frmUser();
+            users.ShowDialog();
+        }
+
         private void DashboardForm_Load(object sender, EventArgs e)
         {
-            // أرقام تجريبية علشان الشارت يظهر (بدّليها بالبيانات الحقيقية بعدين)
             lblStudentsCount.Text = "25";
             lblTeachersCount.Text = "8";
             lblClassesCount.Text = "6";
             lblAttendanceCount.Text = "20";
             pnlChart.Invalidate();
+            pnlPie.Invalidate();
         }
 
         // ===== GDI+ : Bar Chart =====
@@ -111,7 +128,6 @@ namespace SchoolManagementSystem
 
             g.DrawString("School Overview", titleFont, titleBrush, 10, 10);
 
-            // خطوط الشبكة
             for (int i = 0; i <= 4; i++)
             {
                 int y = bottom - (bottom - top) * i / 4;
@@ -119,11 +135,9 @@ namespace SchoolManagementSystem
                 g.DrawString((max * i / 4).ToString(), font, Brushes.Gray, 10, y - 8);
             }
 
-            // المحاور
             g.DrawLine(axisPen, left, top, left, bottom);
             g.DrawLine(axisPen, left, bottom, w - 20, bottom);
 
-            // الأعمدة
             int slot = (w - left - 20) / values.Length;
             int barW = slot - 30;
             for (int i = 0; i < values.Length; i++)
@@ -135,6 +149,34 @@ namespace SchoolManagementSystem
                 g.DrawString(values[i].ToString(), font, Brushes.Black, x + barW / 2 - 6, bottom - barH - 18);
                 g.DrawString(labels[i], font, Brushes.Black, x - 2, bottom + 6);
             }
+        }
+
+        // ===== GDI+ : Pie Chart (Male / Female) =====
+        private void pnlPie_Paint(object? sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            int male = 14, female = 11; // sample numbers
+            int total = male + female;
+
+            using var titleFont = new Font("Segoe UI", 12, FontStyle.Bold);
+            using var font = new Font("Segoe UI", 9);
+            using var titleBrush = new SolidBrush(Color.FromArgb(26, 60, 142));
+            using var maleBrush = new SolidBrush(Color.FromArgb(26, 60, 142));
+            using var femaleBrush = new SolidBrush(Color.FromArgb(30, 155, 60));
+
+            g.DrawString("Gender Distribution", titleFont, titleBrush, 10, 10);
+
+            var rect = new Rectangle(40, 50, 180, 180);
+            float maleAngle = 360f * male / total;
+            g.FillPie(maleBrush, rect, 0, maleAngle);
+            g.FillPie(femaleBrush, rect, maleAngle, 360f - maleAngle);
+
+            g.FillRectangle(maleBrush, 40, 250, 14, 14);
+            g.DrawString($"Male ({male})", font, Brushes.Black, 60, 248);
+            g.FillRectangle(femaleBrush, 140, 250, 14, 14);
+            g.DrawString($"Female ({female})", font, Brushes.Black, 160, 248);
         }
     }
 }
