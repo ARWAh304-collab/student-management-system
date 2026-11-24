@@ -212,6 +212,7 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "School Management System - Login";
+            Load += LoginForm_Load;
             pnlLeft.ResumeLayout(false);
             pnlLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();

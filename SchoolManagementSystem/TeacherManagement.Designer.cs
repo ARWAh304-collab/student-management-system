@@ -164,6 +164,7 @@
             LeftPanel.Name = "LeftPanel";
             LeftPanel.Size = new Size(305, 653);
             LeftPanel.TabIndex = 1;
+            LeftPanel.Paint += LeftPanel_Paint;
             // 
             // btnResetFilters
             // 
@@ -308,6 +309,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(332, 364);
             panel3.TabIndex = 12;
+            panel3.Paint += panel3_Paint;
             // 
             // button7
             // 
@@ -881,6 +883,7 @@
         private Label lblEmailValue;
         private Label lblDepartmentValue;
         private Button btnViewTeacher;
+        private Button btnEditTeacher;
         private Panel panel3;
         private Button button7;
         private Label label18;

@@ -1,4 +1,7 @@
+
+using System;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace SchoolManagementSystem
 {
@@ -18,8 +21,6 @@ namespace SchoolManagementSystem
             picLogo.Region = new Region(path);
         }
 
-        // These two empty methods are needed because the designer file
-        // already refers to them. Leave them here for now.
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
         }
@@ -30,33 +31,71 @@ namespace SchoolManagementSystem
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
+        // Login Button
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var dashboard = new DashboardForm(txtUsername.Text.Trim());
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text;
 
-            dashboard.FormClosed += (s, args) =>
+            // Check empty fields
+            if (username == "" || password == "")
             {
-                if (dashboard.LoggedOut)
-                {
-                    txtPassword.Clear();
-                    this.Show();
-                }
-                else
-                {
-                    this.Close();
-                }
-            };
+                MessageBox.Show(
+                    "Please enter username and password.",
+                    "Login Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
 
-            this.Hide();
-            dashboard.Show();
+                return;
+            }
+
+            // Check login information
+            if (username == "admin" && password == "1234")
+            {
+                var dashboard = new DashboardForm(username);
+
+                dashboard.FormClosed += (s, args) =>
+                {
+                    if (dashboard.LoggedOut)
+                    {
+                        txtPassword.Clear();
+                        this.Show();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                };
+
+                this.Hide();
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Invalid username or password.",
+                    "Login Failed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+
+                txtPassword.Clear();
+                txtPassword.Focus();
+            }
         }
 
+        // Show / Hide Password
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
+            txtPassword.UseSystemPasswordChar =
+                !chkShowPassword.Checked;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }

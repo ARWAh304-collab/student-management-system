@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
+            button1 = new Button();
             btnUsers = new Button();
             btnLogout = new Button();
             btnClasses = new Button();
@@ -68,6 +69,7 @@
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(26, 60, 142);
+            pnlSidebar.Controls.Add(button1);
             pnlSidebar.Controls.Add(btnUsers);
             pnlSidebar.Controls.Add(btnLogout);
             pnlSidebar.Controls.Add(btnClasses);
@@ -80,6 +82,22 @@
             pnlSidebar.Size = new Size(250, 603);
             pnlSidebar.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(0, 276);
+            button1.Name = "button1";
+            button1.Size = new Size(230, 50);
+            button1.TabIndex = 8;
+            button1.Text = "Attendance";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnAttendance_Click;
+            // 
             // btnUsers
             // 
             btnUsers.Cursor = Cursors.Hand;
@@ -87,7 +105,7 @@
             btnUsers.FlatStyle = FlatStyle.Flat;
             btnUsers.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnUsers.ForeColor = Color.White;
-            btnUsers.Location = new Point(0, 270);
+            btnUsers.Location = new Point(0, 332);
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(230, 50);
             btnUsers.TabIndex = 7;
@@ -453,5 +471,6 @@
         private Label lblAttendanceCount;
         private Panel pnlChart;
         private Button btnUsers;
+        private Button button1;
     }
 }

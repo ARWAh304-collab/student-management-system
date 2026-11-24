@@ -30,13 +30,6 @@
         {
             lblTitle = new Label();
             pnlHeader = new Panel();
-            dgvStudents = new DataGridView();
-            txtSearch = new TextBox();
-            Search = new Label();
-            btnClear = new Button();
-            btnDelete = new Button();
-            btnUpdate = new Button();
-            btnAdd = new Button();
             cmbGender = new ComboBox();
             label4 = new Label();
             label2 = new Label();
@@ -49,6 +42,13 @@
             txtUserId = new TextBox();
             label1 = new Label();
             textBox1 = new TextBox();
+            btnAdd = new Button();
+            btnClear = new Button();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            Search = new Label();
+            txtSearch = new TextBox();
+            dgvStudents = new DataGridView();
             pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
             SuspendLayout();
@@ -75,84 +75,6 @@
             pnlHeader.Name = "pnlHeader";
             pnlHeader.Size = new Size(882, 92);
             pnlHeader.TabIndex = 46;
-            // 
-            // dgvStudents
-            // 
-            dgvStudents.AllowUserToAddRows = false;
-            dgvStudents.AllowUserToDeleteRows = false;
-            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudents.Location = new Point(10, 521);
-            dgvStudents.Margin = new Padding(3, 4, 3, 4);
-            dgvStudents.Name = "dgvStudents";
-            dgvStudents.ReadOnly = true;
-            dgvStudents.RowHeadersWidth = 51;
-            dgvStudents.RowTemplate.Height = 24;
-            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvStudents.Size = new Size(820, 150);
-            dgvStudents.TabIndex = 45;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(89, 486);
-            txtSearch.Margin = new Padding(3, 4, 3, 4);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(100, 27);
-            txtSearch.TabIndex = 44;
-            // 
-            // Search
-            // 
-            Search.AutoSize = true;
-            Search.ForeColor = Color.FromArgb(31, 58, 147);
-            Search.Location = new Point(33, 490);
-            Search.Name = "Search";
-            Search.Size = new Size(53, 20);
-            Search.TabIndex = 43;
-            Search.Text = "Search";
-            // 
-            // btnClear
-            // 
-            btnClear.BackColor = Color.FromArgb(46, 158, 79);
-            btnClear.Location = new Point(719, 342);
-            btnClear.Margin = new Padding(3, 4, 3, 4);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(100, 40);
-            btnClear.TabIndex = 42;
-            btnClear.Text = "Clear";
-            btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.FromArgb(46, 158, 79);
-            btnDelete.Location = new Point(486, 342);
-            btnDelete.Margin = new Padding(3, 4, 3, 4);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(100, 40);
-            btnDelete.TabIndex = 41;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.FromArgb(31, 58, 147);
-            btnUpdate.Location = new Point(252, 342);
-            btnUpdate.Margin = new Padding(3, 4, 3, 4);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(100, 40);
-            btnUpdate.TabIndex = 40;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.FromArgb(31, 58, 147);
-            btnAdd.Location = new Point(32, 342);
-            btnAdd.Margin = new Padding(3, 4, 3, 4);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(100, 40);
-            btnAdd.TabIndex = 39;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
             // 
             // cmbGender
             // 
@@ -269,6 +191,84 @@
             textBox1.Size = new Size(314, 27);
             textBox1.TabIndex = 47;
             // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.FromArgb(31, 58, 147);
+            btnAdd.Location = new Point(32, 342);
+            btnAdd.Margin = new Padding(3, 4, 3, 4);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(100, 40);
+            btnAdd.TabIndex = 39;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.FromArgb(46, 158, 79);
+            btnClear.Location = new Point(719, 342);
+            btnClear.Margin = new Padding(3, 4, 3, 4);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(100, 40);
+            btnClear.TabIndex = 42;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.FromArgb(46, 158, 79);
+            btnDelete.Location = new Point(486, 342);
+            btnDelete.Margin = new Padding(3, 4, 3, 4);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(100, 40);
+            btnDelete.TabIndex = 41;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.FromArgb(31, 58, 147);
+            btnUpdate.Location = new Point(252, 342);
+            btnUpdate.Margin = new Padding(3, 4, 3, 4);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(100, 40);
+            btnUpdate.TabIndex = 40;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // Search
+            // 
+            Search.AutoSize = true;
+            Search.ForeColor = Color.FromArgb(31, 58, 147);
+            Search.Location = new Point(33, 490);
+            Search.Name = "Search";
+            Search.Size = new Size(53, 20);
+            Search.TabIndex = 43;
+            Search.Text = "Search";
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(89, 486);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(100, 27);
+            txtSearch.TabIndex = 44;
+            // 
+            // dgvStudents
+            // 
+            dgvStudents.AllowUserToAddRows = false;
+            dgvStudents.AllowUserToDeleteRows = false;
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStudents.Location = new Point(10, 521);
+            dgvStudents.Margin = new Padding(3, 4, 3, 4);
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.ReadOnly = true;
+            dgvStudents.RowHeadersWidth = 51;
+            dgvStudents.RowTemplate.Height = 24;
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStudents.Size = new Size(820, 150);
+            dgvStudents.TabIndex = 45;
+            // 
             // frmUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -311,13 +311,6 @@
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.DataGridView dgvStudents;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label Search;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -330,5 +323,12 @@
         private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private Button btnAdd;
+        private Button btnClear;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Label Search;
+        private TextBox txtSearch;
+        private DataGridView dgvStudents;
     }
 }
