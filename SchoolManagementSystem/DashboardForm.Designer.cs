@@ -54,6 +54,7 @@
             panel2 = new Panel();
             lblTeachersTitle = new Label();
             lblTeachersCount = new Label();
+            pnlChart = new Panel();
             pnlSidebar.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlCardStudents.SuspendLayout();
@@ -230,6 +231,7 @@
             // 
             // pnlContent
             // 
+            pnlContent.Controls.Add(pnlChart);
             pnlContent.Controls.Add(pnlCardAttendance);
             pnlContent.Controls.Add(pnlCardClasses);
             pnlContent.Controls.Add(pnlCardTeachers);
@@ -367,6 +369,14 @@
             lblTeachersCount.TabIndex = 0;
             lblTeachersCount.Text = "0";
             // 
+            // pnlChart
+            // 
+            pnlChart.BackColor = Color.White;
+            pnlChart.Location = new Point(20, 160);
+            pnlChart.Name = "pnlChart";
+            pnlChart.Size = new Size(500, 300);
+            pnlChart.TabIndex = 4;
+            // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -423,5 +433,6 @@
         private Panel panel4;
         private Label lblAttendanceTitle;
         private Label lblAttendanceCount;
+        private Panel pnlChart;
     }
 }
