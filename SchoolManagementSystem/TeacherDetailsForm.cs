@@ -1,5 +1,7 @@
 ﻿
 using System;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SchoolManagementSystem
@@ -15,6 +17,7 @@ namespace SchoolManagementSystem
 
         private FormMode currentMode;
         private TeacherInfo? selectedTeacher;
+        private string selectedPhotoPath = "";
 
         public AddTeacherForm()
         {
@@ -22,8 +25,20 @@ namespace SchoolManagementSystem
 
             currentMode = FormMode.Add;
 
+            this.Load -= AddTeacherForm_Load_1;
+            this.Load += AddTeacherForm_Load_1;
+
+            btnSave.Click -= btnSave_Click;
             btnSave.Click += btnSave_Click;
+
+            btnCancel.Click -= btnCancel_Click;
             btnCancel.Click += btnCancel_Click;
+
+            btnUploadPhoto.Click -= btnUploadPhoto_Click;
+            btnUploadPhoto.Click += btnUploadPhoto_Click;
+
+            txtNewPhone.KeyPress -= txtNewPhone_KeyPress;
+            txtNewPhone.KeyPress += txtNewPhone_KeyPress;
         }
 
         public AddTeacherForm(FormMode mode, TeacherInfo? teacher = null)
@@ -37,19 +52,43 @@ namespace SchoolManagementSystem
         {
             if (currentMode == FormMode.Add)
             {
-                this.Text = "Add New Teacher";
+                Text = "Add New Teacher";
+                lblTeacherFormTitle.Text = "Add New Teacher";
+
+                btnSave.Visible = true;
+                btnUploadPhoto.Visible = true;
+                btnUploadPhoto.Enabled = true;
             }
             else if (currentMode == FormMode.Edit)
             {
-                this.Text = "Edit Teacher";
+                Text = "Edit Teacher";
+                lblTeacherFormTitle.Text = "Edit Teacher";
+
+                btnSave.Visible = true;
+                btnUploadPhoto.Visible = true;
+                btnUploadPhoto.Enabled = true;
+
                 LoadTeacherData();
             }
             else if (currentMode == FormMode.View)
             {
-                this.Text = "View Teacher";
+                Text = "View Teacher";
+                lblTeacherFormTitle.Text = "View Teacher";
+
                 LoadTeacherData();
                 SetFieldsReadOnly();
+
                 btnSave.Visible = false;
+                btnUploadPhoto.Visible = false;
+            }
+        }
+
+        // Allow numbers only in phone field
+        private void txtNewPhone_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 
@@ -64,6 +103,68 @@ namespace SchoolManagementSystem
             txtNewSubject.Text = selectedTeacher.Subject;
             txtNewAddress.Text = selectedTeacher.Address;
             txtNewDepartment.Text = selectedTeacher.Department;
+
+            selectedPhotoPath = selectedTeacher.PhotoPath ?? "";
+
+            LoadTeacherPhoto(selectedPhotoPath);
+        }
+
+        private void LoadTeacherPhoto(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+                return;
+
+            try
+            {
+                byte[] imageBytes = File.ReadAllBytes(path);
+
+                using (MemoryStream stream = new MemoryStream(imageBytes))
+                using (Image image = Image.FromStream(stream))
+                {
+                    Image newImage = new Bitmap(image);
+
+                    if (picTeacherPhoto.Image != null)
+                    {
+                        Image oldImage = picTeacherPhoto.Image;
+                        picTeacherPhoto.Image = null;
+                        oldImage.Dispose();
+                    }
+
+                    picTeacherPhoto.Image = newImage;
+                    picTeacherPhoto.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Unable to load photo: " + ex.Message,
+                    "Photo Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        private void btnUploadPhoto_Click(object? sender, EventArgs e)
+        {
+            if (currentMode == FormMode.View)
+                return;
+
+            using (OpenFileDialog dialog = new OpenFileDialog())
+            {
+                dialog.Title = "Choose Teacher Photo";
+                dialog.Filter =
+                    "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+                dialog.Multiselect = false;
+                dialog.CheckFileExists = true;
+
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    selectedPhotoPath = dialog.FileName;
+                    LoadTeacherPhoto(selectedPhotoPath);
+                }
+            }
         }
 
         private void SetFieldsReadOnly()
@@ -74,15 +175,72 @@ namespace SchoolManagementSystem
             txtNewSubject.ReadOnly = true;
             txtNewAddress.ReadOnly = true;
             txtNewDepartment.ReadOnly = true;
-
-            btnUploadPhoto.Visible = false;
         }
 
         private void btnSave_Click(object? sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNewTeacherName.Text))
+            // Validate all text fields
+            if (string.IsNullOrWhiteSpace(txtNewTeacherName.Text) ||
+                string.IsNullOrWhiteSpace(txtNewPhone.Text) ||
+                string.IsNullOrWhiteSpace(txtNewEmail.Text) ||
+                string.IsNullOrWhiteSpace(txtNewSubject.Text) ||
+                string.IsNullOrWhiteSpace(txtNewAddress.Text) ||
+                string.IsNullOrWhiteSpace(txtNewDepartment.Text))
             {
-                MessageBox.Show("Please enter teacher name.");
+                MessageBox.Show(
+                    "Please fill in all fields.",
+                    "Validation",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            // Validate phone contains digits only
+            foreach (char digit in txtNewPhone.Text)
+            {
+                if (!char.IsDigit(digit))
+                {
+                    MessageBox.Show(
+                        "Phone number must contain numbers only.",
+                        "Validation",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    txtNewPhone.Focus();
+                    return;
+                }
+            }
+
+            // A photo is required when adding a teacher.
+            // In Edit mode, the existing photo can be kept.
+            if (currentMode == FormMode.Add &&
+                (string.IsNullOrWhiteSpace(selectedPhotoPath) ||
+                 !File.Exists(selectedPhotoPath)))
+            {
+                MessageBox.Show(
+                    "Please upload a teacher photo.",
+                    "Validation",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (currentMode == FormMode.Edit &&
+                (string.IsNullOrWhiteSpace(selectedPhotoPath) ||
+                 !File.Exists(selectedPhotoPath)))
+            {
+                MessageBox.Show(
+                    "The teacher photo could not be found. Please upload a new photo.",
+                    "Validation",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
                 return;
             }
 
@@ -90,37 +248,68 @@ namespace SchoolManagementSystem
             {
                 TeacherInfo teacher = new TeacherInfo
                 {
-                    Name = txtNewTeacherName.Text,
-                    Phone = txtNewPhone.Text,
-                    Email = txtNewEmail.Text,
-                    Subject = txtNewSubject.Text,
-                    Address = txtNewAddress.Text,
-                    Department = txtNewDepartment.Text
+                    Name = txtNewTeacherName.Text.Trim(),
+                    Phone = txtNewPhone.Text.Trim(),
+                    Email = txtNewEmail.Text.Trim(),
+                    Subject = txtNewSubject.Text.Trim(),
+                    Address = txtNewAddress.Text.Trim(),
+                    Department = txtNewDepartment.Text.Trim(),
+                    PhotoPath = selectedPhotoPath
                 };
 
                 TeacherData.Teachers.Add(teacher);
 
-                MessageBox.Show("Teacher added successfully!");
+                MessageBox.Show(
+                    "Teacher added successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
             else if (currentMode == FormMode.Edit && selectedTeacher != null)
             {
-                selectedTeacher.Name = txtNewTeacherName.Text;
-                selectedTeacher.Phone = txtNewPhone.Text;
-                selectedTeacher.Email = txtNewEmail.Text;
-                selectedTeacher.Subject = txtNewSubject.Text;
-                selectedTeacher.Address = txtNewAddress.Text;
-                selectedTeacher.Department = txtNewDepartment.Text;
+                selectedTeacher.Name = txtNewTeacherName.Text.Trim();
+                selectedTeacher.Phone = txtNewPhone.Text.Trim();
+                selectedTeacher.Email = txtNewEmail.Text.Trim();
+                selectedTeacher.Subject = txtNewSubject.Text.Trim();
+                selectedTeacher.Address = txtNewAddress.Text.Trim();
+                selectedTeacher.Department = txtNewDepartment.Text.Trim();
 
-                MessageBox.Show("Teacher updated successfully!");
+                // Keep old photo or save the newly selected photo
+                selectedTeacher.PhotoPath = selectedPhotoPath;
+
+                MessageBox.Show(
+                    "Teacher updated successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            else
+            {
+                return;
             }
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void btnCancel_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            if (picTeacherPhoto.Image != null)
+            {
+                Image oldImage = picTeacherPhoto.Image;
+                picTeacherPhoto.Image = null;
+                oldImage.Dispose();
+            }
+
+            base.OnFormClosed(e);
         }
     }
 }

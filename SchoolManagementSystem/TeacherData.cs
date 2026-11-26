@@ -11,6 +11,7 @@ namespace SchoolManagementSystem
         public string Subject { get; set; } = "";
         public string Address { get; set; } = "";
         public string Department { get; set; } = "";
+        public string PhotoPath { get; set; } = "";
     }
 
     public static class TeacherData

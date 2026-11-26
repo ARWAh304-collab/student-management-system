@@ -1,6 +1,7 @@
 
 using System;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SchoolManagementSystem
@@ -13,7 +14,6 @@ namespace SchoolManagementSystem
             MakeLogoCircular();
         }
 
-        // Clips the logo into a circle
         private void MakeLogoCircular()
         {
             GraphicsPath path = new GraphicsPath();
@@ -33,44 +33,47 @@ namespace SchoolManagementSystem
         {
         }
 
-        // Login Button
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text;
 
-            // Check empty fields
-            if (username == "" || password == "")
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show(
                     "Please enter username and password.",
                     "Login Error",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                    MessageBoxIcon.Warning);
 
                 return;
             }
 
-            // Check login information
-            if (username == "admin" && password == "1234")
+            UserAccount? user = UserData.Users.FirstOrDefault(
+                u => string.Equals(
+                    u.Username,
+                    username,
+                    StringComparison.OrdinalIgnoreCase));
+
+            if (user != null && UserData.VerifyPassword(user, password))
             {
-                var dashboard = new DashboardForm(username);
+                var dashboard = new DashboardForm(user.Username, user.Role);
 
                 dashboard.FormClosed += (s, args) =>
                 {
                     if (dashboard.LoggedOut)
                     {
                         txtPassword.Clear();
-                        this.Show();
+                        Show();
                     }
                     else
                     {
-                        this.Close();
+                        Close();
                     }
                 };
 
-                this.Hide();
+                Hide();
                 dashboard.Show();
             }
             else
@@ -79,15 +82,13 @@ namespace SchoolManagementSystem
                     "Invalid username or password.",
                     "Login Failed",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                    MessageBoxIcon.Error);
 
                 txtPassword.Clear();
                 txtPassword.Focus();
             }
         }
 
-        // Show / Hide Password
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar =

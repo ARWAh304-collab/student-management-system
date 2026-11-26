@@ -23,16 +23,21 @@ namespace SchoolManagementSystem
         {
             attendanceTable = new DataTable();
 
-            attendanceTable.Columns.Add("StudentID", typeof(int));
+            attendanceTable.Columns.Add("StudentID", typeof(string));
             attendanceTable.Columns.Add("StudentName", typeof(string));
             attendanceTable.Columns.Add("Class", typeof(string));
             attendanceTable.Columns.Add("Status", typeof(string));
 
-            attendanceTable.Rows.Add(101, "Ahmed Ali", "Grade 10", "Not Marked");
-            attendanceTable.Rows.Add(102, "Mona Hassan", "Grade 11", "Not Marked");
-            attendanceTable.Rows.Add(103, "Omar Samir", "Grade 10", "Not Marked");
-            attendanceTable.Rows.Add(104, "Sara Mohamed", "Grade 12", "Not Marked");
-            attendanceTable.Rows.Add(105, "Youssef Adel", "Grade 11", "Not Marked");
+            // Load actual students from StudentData
+            foreach (StudentInfo student in StudentData.Students)
+            {
+                attendanceTable.Rows.Add(
+                    student.ID,
+                    student.Name,
+                    student.Class,
+                    "Not Marked"
+                );
+            }
 
             dgvAttendance.DataSource = attendanceTable;
 
@@ -40,6 +45,7 @@ namespace SchoolManagementSystem
             dgvAttendance.Columns["StudentName"].HeaderText = "Student Name";
             dgvAttendance.Columns["Class"].HeaderText = "Class";
 
+            // Replace the normal Status column with a ComboBox
             dgvAttendance.Columns.Remove("Status");
 
             DataGridViewComboBoxColumn statusColumn =
@@ -87,7 +93,6 @@ namespace SchoolManagementSystem
             }
         }
 
-        // Save attendance
         private void btnSave_Click(object? sender, EventArgs e)
         {
             dgvAttendance.EndEdit();

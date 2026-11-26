@@ -9,21 +9,31 @@ namespace SchoolManagementSystem
     public partial class DashboardForm : Form
     {
         public bool LoggedOut { get; private set; }
+
         private Panel pnlPie = null!;
+        private readonly string currentRole;
+        private readonly string currentUsername;
 
         public DashboardForm(string username)
+            : this(username, "Admin")
+        {
+        }
+
+        public DashboardForm(string username, string role)
         {
             InitializeComponent();
 
+            currentRole = role;
+            currentUsername = username;
+
             StyleSidebarButtons();
+            ApplyRolePermissions();
 
             lblWelcome.Text = "Welcome, " + username;
             lblWelcome.Left = pnlHeader.Width - lblWelcome.Width - 20;
 
-            // Bar chart
             pnlChart.Paint += pnlChart_Paint;
 
-            // Pie chart
             pnlPie = new Panel
             {
                 BackColor = Color.White,
@@ -35,6 +45,33 @@ namespace SchoolManagementSystem
             pnlPie.Paint += pnlPie_Paint;
         }
 
+        private bool IsAdmin()
+        {
+            return string.Equals(
+                currentRole,
+                "Admin",
+                StringComparison.OrdinalIgnoreCase);
+        }
+
+        private void ApplyRolePermissions()
+        {
+            if (IsAdmin())
+            {
+                btnTeachers.Visible = true;
+                btnUsers.Visible = true;
+            }
+            else
+            {
+                btnTeachers.Visible = false;
+                btnUsers.Visible = false;
+            }
+
+            btnStudents.Visible = true;
+            btnClasses.Visible = true;
+            button1.Visible = true;
+            btnLogout.Visible = true;
+        }
+
         private void StyleSidebarButtons()
         {
             var buttons = new[]
@@ -42,6 +79,7 @@ namespace SchoolManagementSystem
                 btnStudents,
                 btnTeachers,
                 btnClasses,
+                button1,
                 btnUsers,
                 btnLogout
             };
@@ -61,7 +99,6 @@ namespace SchoolManagementSystem
             }
         }
 
-        // Logout
         private void btnLogout_Click(object? sender, EventArgs e)
         {
             var result = MessageBox.Show(
@@ -73,20 +110,25 @@ namespace SchoolManagementSystem
             if (result == DialogResult.Yes)
             {
                 LoggedOut = true;
-                this.Close();
+                Close();
             }
         }
 
-        // Open Teachers
         private void btnTeachers_Click(object? sender, EventArgs e)
         {
+            if (!IsAdmin())
+            {
+                MessageBox.Show(
+                    "You do not have permission to access this page.");
+                return;
+            }
+
             var teachers = new TeacherManage();
             teachers.ShowDialog();
 
             RefreshDashboardData();
         }
 
-        // Open Students
         private void btnStudents_Click(object? sender, EventArgs e)
         {
             var students = new frmStudent();
@@ -95,7 +137,6 @@ namespace SchoolManagementSystem
             RefreshDashboardData();
         }
 
-        // Open Classes
         private void btnClasses_Click(object? sender, EventArgs e)
         {
             var classes = new Classesform();
@@ -104,7 +145,6 @@ namespace SchoolManagementSystem
             RefreshDashboardData();
         }
 
-        // Open Attendance
         private void btnAttendance_Click(object? sender, EventArgs e)
         {
             var attendance = new AttendanceForm();
@@ -113,20 +153,24 @@ namespace SchoolManagementSystem
             RefreshDashboardData();
         }
 
-        // Open Users
         private void btnUsers_Click(object? sender, EventArgs e)
         {
-            var users = new frmUser();
+            if (!IsAdmin())
+            {
+                MessageBox.Show(
+                    "You do not have permission to access User Management.");
+                return;
+            }
+
+            var users = new frmUser(currentUsername);
             users.ShowDialog();
         }
 
-        // Dashboard Load
         private void DashboardForm_Load(object? sender, EventArgs e)
         {
             RefreshDashboardData();
         }
 
-        // Refresh dashboard numbers and charts
         private void RefreshDashboardData()
         {
             lblStudentsCount.Text =
@@ -267,12 +311,16 @@ namespace SchoolManagementSystem
                 System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             int male = StudentData.Students.Count(student =>
-                string.Equals(student.Gender, "Male",
+                string.Equals(
+                    student.Gender,
+                    "Male",
                     StringComparison.OrdinalIgnoreCase) ||
                 student.Gender == "ذكر");
 
             int female = StudentData.Students.Count(student =>
-                string.Equals(student.Gender, "Female",
+                string.Equals(
+                    student.Gender,
+                    "Female",
                     StringComparison.OrdinalIgnoreCase) ||
                 student.Gender == "أنثى");
 
@@ -319,11 +367,13 @@ namespace SchoolManagementSystem
                 g.FillPie(maleBrush, rect, 0, maleAngle);
 
             if (female > 0)
+            {
                 g.FillPie(
                     femaleBrush,
                     rect,
                     maleAngle,
                     360f - maleAngle);
+            }
 
             g.FillRectangle(maleBrush, 40, 250, 14, 14);
 
