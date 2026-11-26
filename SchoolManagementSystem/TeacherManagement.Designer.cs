@@ -31,7 +31,6 @@
             TopPanel = new Panel();
             lblPageTitle = new Label();
             lblSystemName = new Label();
-            btnHome = new Button();
             LeftPanel = new Panel();
             btnResetFilters = new Button();
             btnAddTeacher = new Button();
@@ -111,7 +110,6 @@
             TopPanel.BackColor = Color.FromArgb(26, 60, 142);
             TopPanel.Controls.Add(lblPageTitle);
             TopPanel.Controls.Add(lblSystemName);
-            TopPanel.Controls.Add(btnHome);
             TopPanel.Dock = DockStyle.Top;
             TopPanel.Location = new Point(0, 0);
             TopPanel.Name = "TopPanel";
@@ -137,16 +135,6 @@
             lblSystemName.Size = new Size(197, 20);
             lblSystemName.TabIndex = 1;
             lblSystemName.Text = "School Management System";
-            // 
-            // btnHome
-            // 
-            btnHome.BackColor = Color.Snow;
-            btnHome.Location = new Point(48, 12);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(80, 32);
-            btnHome.TabIndex = 0;
-            btnHome.Text = "Home";
-            btnHome.UseVisualStyleBackColor = false;
             // 
             // LeftPanel
             // 
@@ -860,7 +848,6 @@
         private Panel LeftPanel;
         private Panel MainPanel;
         private Label lblSystemName;
-        private Button btnHome;
         private Label lblPageTitle;
         private Button btnResetFilters;
         private Button btnAddTeacher;
